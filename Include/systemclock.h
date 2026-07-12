@@ -3,6 +3,10 @@
  *
  *  Created on: Jul 2, 2026
  *      Author: timjv
+ * 
+ * This was a successful attempt at writing a driver to control the RCC for my basic needs
+ * 
+ * This driver should not be used as I am moving to using the LL drivers provided by STM32
  */
 
 #ifndef INCLUDE_SYSTEMCLOCK_H_

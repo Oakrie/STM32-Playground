@@ -52,18 +52,20 @@ set (PROJECT_SOURCES
 	Sources/main.c
 	Sources/syscalls.c
 	Sources/sysmem.c
-
-
+	STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c
 	)
 
 set (PROJECT_DEFINES
 	# LIST COMPILER DEFINITIONS HERE
-
+	USE_FULL_LL_DRIVER
     )
 
 set (PROJECT_INCLUDES
 	# LIST INCLUDE DIRECTORIES HERE
 		Include
+		STM32CubeF4/Drivers/CMSIS/Core/Include
+		STM32CubeF4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+		STM32CubeF4/Drivers/STM32F4xx_HAL_Driver/Inc
     )
 
 ############ MODIFY ACCORDING TO REQUIREMENTS) ########################

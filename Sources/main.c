@@ -16,6 +16,9 @@
  ******************************************************************************
  */
 
+#include "stm32f446xx.h"
+#include "stm32f4xx_ll_rcc.h"
+
 #include "systemclock.h"
 #include "helperfunctions.h"
 #include "gpio.h"
@@ -26,11 +29,20 @@
 
 void SystemInit(void)
 {
+	volatile uint32_t Freq = __LL_RCC_CALC_PLLCLK_FREQ (HSI_VALUE, LL_RCC_PLL_GetDivider(), LL_RCC_PLL_GetN(), LL_RCC_PLL_GetP ());
+
+	// Configure PLL
 	uint32_t* pRCCCR = (uint32_t*)RCC_CR_ADDR;
-
+	
+	// Set PLLON bit to on to start it
 	BitSet(pRCCCR, RCC_CR_PLLON_BIT);
-
+	
+	// Set system clock to PLL
 	SetSysClock(2);
+
+	Freq = Freq + 1;
+
+
 
 }
 
